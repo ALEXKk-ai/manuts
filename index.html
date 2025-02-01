@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DemaFoods</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            height: 93vh;
+            background: #9b59b6;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-family: Arial, sans-serif;
+            font-size: 1.2rem;
+            color: blanchedalmond;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 70px;
+        }
+
+        .logo-text {
+            position: relative;
+            z-index: 1;
+            transform: translateX(5px);
+        }
+
+        .dema {
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .foods {
+            font-weight: 400;
+        }
+
+        .logo::before {
+            content: "";
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            border: 2px solid white;
+            border-radius: 50%;
+            left: -10px;
+            top: -2px;
+            clip-path: polygon(0 0, 95% 0, 95% 95%, 90% 100%, 0 100%, 0 0);
+        }
+
+        .hamburger-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 30px;
+            height: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hamburger-menu div {
+            width: 100%;
+            height: 4px;
+            background: white;
+            border-radius: 2px;
+        }
+
+        .gif-container {
+            margin-top: -6cm; /* Moved up by half of the previous space */
+            width: 150px;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .gif-container img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .gif-container img.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <div class="logo-text">
+                <span class="dema">Dema</span><span class="foods">Foods</span>
+            </div>
+        </div>
+        <div class="hamburger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="gif-container">
+            <img src="images/gif1.gif" class="active" id="gif1">
+            <img src="images/gif2.gif" id="gif2">
+        </div>
+    </div>
+
+    <script>
+        let gifIndex = 0;
+        const gifs = document.querySelectorAll(".gif-container img");
+        
+        setInterval(() => {
+            gifs[gifIndex].classList.remove("active");
+            gifIndex = (gifIndex + 1) % gifs.length;
+            gifs[gifIndex].classList.add("active");
+        }, 4500); // 3 seconds duration
+    </script>
+</body>
+</html>
