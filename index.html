@@ -83,7 +83,7 @@
         }
 
         .gif-container {
-            margin-top: -6cm; /* Moved up by half of the previous space */
+            margin-top: -6cm; 
             width: 150px;
             height: 160px;
             display: flex;
@@ -103,6 +103,36 @@
         .gif-container img.active {
             display: block;
         }
+
+        .text-container {
+            text-align: center;
+            margin-top: 30px;
+            color: rgb(227, 181, 66);
+            font-family: Arial, sans-serif;
+        }
+
+        .text-container .main-text {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .text-container .sub-text {
+            font-size: 1.5rem;
+        }
+
+        .search-bar {
+            margin-top: 20px;
+            padding: 10px;
+            background: rgb(210, 183, 30);
+            color: black;
+            font-size: 1rem;
+            text-align: center;
+            border-radius: 25px;
+            width: 245px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -121,6 +151,11 @@
             <img src="images/gif1.gif" class="active" id="gif1">
             <img src="images/gif2.gif" id="gif2">
         </div>
+        <div class="text-container">
+            <div class="main-text">Food And Drinks</div>
+            <div class="sub-text">Delivered Anywhere</div>
+        </div>
+        <div class="search-bar">Use Current Location</div>
     </div>
 
     <script>
@@ -131,7 +166,7 @@
             gifs[gifIndex].classList.remove("active");
             gifIndex = (gifIndex + 1) % gifs.length;
             gifs[gifIndex].classList.add("active");
-        }, 4500); // 3 seconds duration
+        }, 4500); 
     </script>
 </body>
 </html>
