@@ -164,21 +164,34 @@
         .rectangle {
             width: 200px;
             height: 200px;
-            background: white;
+            background: linear-gradient(to bottom, gray 50%, goldenrod);
             border-radius: 15px;
             border: 2px solid black;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
-            font-weight: bold;
+            position: relative;
+        }
+
+        .rectangle img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            position: absolute;
         }
 
         .label {
-            margin-bottom: 5px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: goldenrod;
+            padding: 6px 12px;
+            border-radius: 25px;
             font-size: 0.8rem;
-            color: white;
+            color: black;
             text-align: center;
+            font-weight: bold;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -206,11 +219,36 @@
         <div class="order-now">Order now!!</div>
         
         <div class="drawing-gallery">
-            <div class="drawing"><div class="label">Top restaurants</div><div class="rectangle"></div></div>
-            <div class="drawing"><div class="label">Drinks</div><div class="rectangle"></div></div>
-            <div class="drawing"><div class="label">Group dishes</div><div class="rectangle"></div></div>
-            <div class="drawing"><div class="label">Bakeries</div><div class="rectangle"></div></div>
-            <div class="drawing"><div class="label">Fruit vendors</div><div class="rectangle"></div></div>
+            <div class="drawing">
+                <div class="label">Top Restaurant</div>
+                <div class="rectangle">
+                    <img src="images/top-restaurant.jpg" alt="Top restaurant">
+                </div>
+            </div>
+            <div class="drawing">
+                <div class="label">Drinks</div>
+                <div class="rectangle">
+                    <img src="images/drinks.jpg" alt="Drinks">
+                </div>
+            </div>
+            <div class="drawing">
+                <div class="label">Group Dishes</div>
+                <div class="rectangle">
+                    <img src="images/group-dishes.jpg" alt="Group Dishes">
+                </div>
+            </div>
+            <div class="drawing">
+                <div class="label">Bakeries</div>
+                <div class="rectangle">
+                    <img src="images/bakeries.jpg" alt="Bakeries">
+                </div>
+            </div>
+            <div class="drawing">
+                <div class="label">Fruit Vendors</div>
+                <div class="rectangle">
+                    <img src="images/fruit-vendors.jpg" alt="Fruit Vendors">
+                </div>
+            </div>
         </div>
     </div>
 
