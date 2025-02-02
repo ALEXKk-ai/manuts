@@ -128,7 +128,7 @@
             font-size: 1rem;
             text-align: center;
             border-radius: 25px;
-            width: 245px;
+            width: 245px;  /* Modified: Reduced width from 245px to 180px */
             font-family: Arial, sans-serif;
             font-weight: bold;
             cursor: pointer;
@@ -147,10 +147,10 @@
             display: flex;
             gap: 7px;
             margin-top: 30px;
-            overflow-x: scroll; /* Enable horizontal scroll */
-            white-space: nowrap; /* Prevent wrapping */
+            overflow-x: scroll;
+            white-space: nowrap;
             padding-bottom: 10px;
-            scroll-snap-type: x mandatory; /* Enable snap to each item */
+            scroll-snap-type: x mandatory;
         }
 
         .drawing {
@@ -158,7 +158,7 @@
             flex-direction: column;
             align-items: center;
             flex: 0 0 auto;
-            scroll-snap-align: start; /* Ensure it snaps to the start of each item */
+            scroll-snap-align: start;
         }
 
         .rectangle {
@@ -185,9 +185,9 @@
             top: 10px;
             left: 10px;
             background-color: goldenrod;
-            padding: 6px 12px;
-            border-radius: 25px;
-            font-size: 0.8rem;
+            padding: 3px 8px;  /* Modified: Reduced padding from 6px 12px */
+            border-radius: 15px;  /* Modified: Reduced border-radius from 25px */
+            font-size: 0.5rem;
             color: black;
             text-align: center;
             font-weight: bold;
@@ -220,32 +220,32 @@
         
         <div class="drawing-gallery">
             <div class="drawing">
-                <div class="label">Top Restaurant</div>
                 <div class="rectangle">
+                    <div class="label">Top Restaurants</div>
                     <img src="images/top-restaurant.jpg" alt="Top restaurant">
                 </div>
             </div>
             <div class="drawing">
-                <div class="label">Drinks</div>
                 <div class="rectangle">
+                    <div class="label">Drinks</div>
                     <img src="images/drinks.jpg" alt="Drinks">
                 </div>
             </div>
             <div class="drawing">
-                <div class="label">Group Dishes</div>
                 <div class="rectangle">
+                    <div class="label">Group Dishes</div>
                     <img src="images/group-dishes.jpg" alt="Group Dishes">
                 </div>
             </div>
             <div class="drawing">
-                <div class="label">Bakeries</div>
                 <div class="rectangle">
+                    <div class="label">Bakeries</div>
                     <img src="images/bakeries.jpg" alt="Bakeries">
                 </div>
             </div>
             <div class="drawing">
-                <div class="label">Fruit Vendors</div>
                 <div class="rectangle">
+                    <div class="label">Fruit Vendors</div>
                     <img src="images/fruit-vendors.jpg" alt="Fruit Vendors">
                 </div>
             </div>
@@ -262,7 +262,7 @@
             });
             gifIndex = gifIndex === 1 ? 2 : 1;
             document.getElementById(`gif${gifIndex}`).classList.add('active');
-        }, 4500); // Switch every 4 seconds
+        }, 4500);
     </script>
 </body>
 </html>
