@@ -83,7 +83,7 @@
         }
 
         .gif-container {
-            margin-top: 3cm; 
+            margin-top: 1.5cm; 
             width: 150px;
             height: 165px;
             display: flex;
@@ -142,6 +142,7 @@
             font-weight: bold;
             cursor: pointer;
         }
+
         .drawing-gallery {
             display: flex;
             gap: 7px;
@@ -212,5 +213,18 @@
             <div class="drawing"><div class="label">Fruit vendors</div><div class="rectangle"></div></div>
         </div>
     </div>
+
+    <script>
+        // GIF switching logic
+        let gifIndex = 1;
+        setInterval(() => {
+            let gifs = document.querySelectorAll('.gif-container img');
+            gifs.forEach((gif, index) => {
+                gif.classList.remove('active');
+            });
+            gifIndex = gifIndex === 1 ? 2 : 1;
+            document.getElementById(`gif${gifIndex}`).classList.add('active');
+        }, 4500); // Switch every 4 seconds
+    </script>
 </body>
 </html>
