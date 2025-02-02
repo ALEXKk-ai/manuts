@@ -13,7 +13,7 @@
 
         .container {
             width: 100%;
-            height: 93vh;
+            height: 97vh;
             background: #9b59b6;
             position: relative;
             overflow: hidden;
@@ -83,9 +83,9 @@
         }
 
         .gif-container {
-            margin-top: -4cm; 
+            margin-top: 3cm; 
             width: 150px;
-            height: 160px;
+            height: 165px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -133,6 +133,52 @@
             font-weight: bold;
             cursor: pointer;
         }
+
+        .order-now {
+            margin-top: 13px;
+            font-size: 1.5rem;
+            color: whitesmoke;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .drawing-gallery {
+            display: flex;
+            gap: 7px;
+            margin-top: 30px;
+            overflow-x: scroll; /* Enable horizontal scroll */
+            white-space: nowrap; /* Prevent wrapping */
+            padding-bottom: 10px;
+            scroll-snap-type: x mandatory; /* Enable snap to each item */
+        }
+
+        .drawing {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 0 0 auto;
+            scroll-snap-align: start; /* Ensure it snaps to the start of each item */
+        }
+
+        .rectangle {
+            width: 200px;
+            height: 150px;
+            background: white;
+            border-radius: 15px;
+            border: 2px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .label {
+            margin-bottom: 5px;
+            font-size: 0.8rem;
+            color: white;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -156,17 +202,15 @@
             <div class="sub-text">Delivered Anywhere</div>
         </div>
         <div class="search-bar">Use Current Location</div>
-    </div>
-
-    <script>
-        let gifIndex = 0;
-        const gifs = document.querySelectorAll(".gif-container img");
+        <div class="order-now">Order now!!</div>
         
-        setInterval(() => {
-            gifs[gifIndex].classList.remove("active");
-            gifIndex = (gifIndex + 1) % gifs.length;
-            gifs[gifIndex].classList.add("active");
-        }, 4500); 
-    </script>
+        <div class="drawing-gallery">
+            <div class="drawing"><div class="label">Top restaurants</div><div class="rectangle"></div></div>
+            <div class="drawing"><div class="label">Drinks</div><div class="rectangle"></div></div>
+            <div class="drawing"><div class="label">Group dishes</div><div class="rectangle"></div></div>
+            <div class="drawing"><div class="label">Bakeries</div><div class="rectangle"></div></div>
+            <div class="drawing"><div class="label">Fruit vendors</div><div class="rectangle"></div></div>
+        </div>
+    </div>
 </body>
 </html>
