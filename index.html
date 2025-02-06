@@ -13,7 +13,7 @@
 
         .container {
             width: 100%;
-            height: 97vh;
+            min-height: 115vh;
             background: #9b59b6;
             position: relative;
             overflow: hidden;
@@ -21,12 +21,110 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            padding: 20px;
         }
 
         .second-container {
             width: 100%;
-            height: 97vh;
-            background: seagreen;
+            min-height: 68vh;
+            background: rgb(138,154,91);
+            padding: 20px;
+        }
+
+        .third-container {
+            width: 100%;
+            min-height: 50vh;
+            background: black;
+            padding: 20px;
+        }
+
+        .image-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .image-column, .hotel-column, .supper-column {
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        .supper-image, .deliver-image, .hotel-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0px;
+        }
+
+        .hotel-text{
+            text-align: left;
+            margin-top: 5px;
+            color: black;
+            font-family: Arial, sans-serif;
+        }
+
+        .hotel-title{
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .hotel-register{
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .deliver-text {
+            text-align: left;
+            margin-top: 5px;
+            color: black;
+            font-family: Arial, sans-serif;
+        }
+
+        .deliver-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .deliver-signup {
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .supper-text {
+            text-align: left;
+            margin-top: 5px;
+            color: black;
+            font-family: Arial, sans-serif;
+        }
+
+        .supper-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .supper-description.main.text {
+            font-size: 0.7rem;
+            margin-bottom: 3.5px;
+            line-height: 1.5;
+        }
+
+        .supper-description.sub.text {
+            font-size: 0.7rem;
+            margin-bottom: 3.5px;
+            line-height: 1.5;
+        }
+
+        .supper-order {
+            font-size: 0.95rem;
+            cursor: pointer;
         }
 
         .logo {
@@ -79,6 +177,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            z-index: 2;
         }
 
         .hamburger-menu div {
@@ -89,7 +188,7 @@
         }
 
         .gif-container {
-            margin-top: 1.5cm; 
+            margin-top: 1.5cm;
             width: 170px;
             height: 170px;
             display: flex;
@@ -121,12 +220,12 @@
         }
 
         .text-container .main-text {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
             font-weight: bold;
         }
 
         .text-container .sub-text {
-            font-size: 1.5rem;
+            font-size: clamp(1rem, 3vw, 1.5rem);
         }
 
         .search-bar {
@@ -137,7 +236,7 @@
             font-size: 1rem;
             text-align: center;
             border-radius: 25px;
-            width: 245px;
+            width: min(245px, 90%);
             font-family: Arial, sans-serif;
             font-weight: bold;
             cursor: pointer;
@@ -145,7 +244,7 @@
 
         .order-now {
             margin-top: 13px;
-            font-size: 1.5rem;
+            font-size: clamp(1rem, 3vw, 1.5rem);
             color: whitesmoke;
             font-family: Arial, sans-serif;
             font-weight: bold;
@@ -212,11 +311,48 @@
             background-color: goldenrod;
             padding: 3px 8px;
             border-radius: 15px;
-            font-size: 0.5rem;
+            font-size: 0.05;
             color: black;
             text-align: center;
             font-weight: bold;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .image-row {
+                justify-content: center;
+            }
+            
+            .image-column, .hotel-column, .supper-column {
+                min-width: 280px;
+            }
+
+            .drawing-gallery {
+                padding: 10px;
+            }
+
+            .rectangle {
+                width: 150px;
+                height: 150px;
+            }
+
+            .gif-container {
+                margin-top: 2cm;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container, .second-container, .third-container {
+                padding: 10px;
+            }
+
+            .logo {
+                left: 15px;
+            }
+
+            .hamburger-menu {
+                right: 15px;
+            }
         }
     </style>
 </head>
@@ -237,8 +373,8 @@
             <img src="images/gif2.gif" id="gif2">
         </div>
         <div class="text-container">
-            <div class="main-text">Food And Drinks</div>
-            <div class="sub-text">Delivered Anywhere</div>
+            <div class="main-text">Food and Drinks</div>
+            <div class="sub-text">delivered where you are </div>
         </div>
         <div class="search-bar">Use Current Location</div>
         <div class="order-now">Order now!!</div>
@@ -270,15 +406,42 @@
             </div>
             <div class="drawing">
                 <div class="rectangle">
-                    <div class="label">Fruit Vendors</div>
-                    <img src="images/fruit-vendors.jpg" alt="Fruit Vendors">
+                    <div class="label">Ice cream parlors</div>
+                    <img src="images/ice-cream.jpg" alt="Ice cream">
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="second-container"></div>
-
+    <div class="second-container">
+        <div class="image-row">
+            <div class="supper-column">
+                <img src="images/supper.jpg" alt="Supper" class="supper-image">
+                <div class="supper-text">
+                    <div class="supper-title">Dema super supper</div>
+                    <div class="supper-description main text">Enjoy delicious meals every evening with our weekly</div>
+                    <div class="supper-description sub text">supper subscription—convenient and delivered straight to your door!</div>
+                    <div class="supper-order">Order now</div>
+                </div>
+            </div>
+            <div class="image-column">
+                <img src="images/deliver.jpg" alt="Delivery" class="deliver-image">
+                <div class="deliver-text">
+                    <div class="deliver-title">Deliver with DemaFoods</div>
+                    <div class="deliver-signup">sign up to deliver</div>
+                </div>
+            </div>
+            
+            <div class="hotel-column">
+                <img src="images/hotel.jpg" alt="Hotel" class="hotel-image">
+                <div class="hotel-text">
+                    <div class="hotel-title">Your restaurant</div>
+                    <div class="hotel-register">add your restaurant</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="third-container">
     <script>
         let gifIndex = 1;
         setInterval(() => {
