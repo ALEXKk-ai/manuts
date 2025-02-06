@@ -37,7 +37,19 @@
             background: black;
             padding: 20px;
         }
-
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .footer h2, .footer p {
+            margin: 5px 0;
+        }
         .image-row {
             display: flex;
             justify-content: space-between;
@@ -311,7 +323,7 @@
             background-color: goldenrod;
             padding: 3px 8px;
             border-radius: 15px;
-            font-size: 0.05;
+            font-size: o.5rem;
             color: black;
             text-align: center;
             font-weight: bold;
@@ -328,18 +340,29 @@
             }
 
             .drawing-gallery {
-                padding: 10px;
+                padding: 15px;
             }
 
             .rectangle {
-                width: 150px;
-                height: 150px;
+                width: 200px;
+                height: 200px;
             }
+        }
+
+.rectangle img {
+    width: 90px;     /* Increased image size proportionally */
+    height: 90px;
+}
+
+.label {
+    font-size: 0.6rem;  /* Slightly larger font for better readability */
+    padding: 4px 10px;  /* Larger padding for better touch targets */
+}
 
             .gif-container {
                 margin-top: 2cm;
             }
-        }
+        
 
         @media (max-width: 480px) {
             .container, .second-container, .third-container {
@@ -349,7 +372,15 @@
             .logo {
                 left: 15px;
             }
+            .drawing-gallery {
+                padding: 10px 5px; /* Reduced side padding to accommodate larger rectangles */
+                gap: 20px;
+            }
 
+            .rectangle {
+                width: 190px;    /* Even larger on smaller screens */
+                height: 190px;
+            }
             .hamburger-menu {
                 right: 15px;
             }
@@ -442,6 +473,17 @@
         </div>
     </div>
     <div class="third-container">
+        <div class="content">
+            <!-- Main Content Goes Here -->
+        </div>
+        <div class="footer">
+            <h2>Dema Foods KE</h2>
+            <h3>Contact Us</h3>
+            <p>Phone: 0706832905, 0112444651</p>
+            <p>Email: demafoodskenya@gmail.com</p>
+            <h3>Follow Us</h3>
+            <p>Social media links go here</p>
+        </div>
     <script>
         let gifIndex = 1;
         setInterval(() => {
