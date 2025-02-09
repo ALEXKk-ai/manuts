@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>DemaFoods</title>
     <style>
         * {
@@ -13,7 +14,7 @@
 
         .container {
             width: 100%;
-            min-height: 107vh;
+            min-height: 70vh;
             background: #9b59b6;
             position: relative;
             overflow: hidden;
@@ -24,6 +25,8 @@
             padding: 20px;
         }
 
+
+       
         .second-container {
             width: 100%;
             min-height: 68vh;
@@ -75,7 +78,7 @@
 
 .footer h2 {
     font-size: 1.2rem;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     width: 100%;
     text-align: center;
 }
@@ -104,10 +107,40 @@
 .footer a:hover {
     opacity: 0.8;
 }
+.footer-right p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-right .fab.fa-instagram {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.footer-right a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+.about-link {
+    color: white;
+    text-decoration: none;  
+    transition: opacity 0.3s;
+}
+
+.about-link:hover {
+    opacity: 0.8;
+}
+.footer-right a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
         .image-row {
             display: flex;
             justify-content: space-between;
             margin-bottom: 30px;
+            margin-top: 30px;   
             align-items: flex-start;
             flex-wrap: wrap;
             gap: 20px;
@@ -266,9 +299,10 @@
         }
 
         .gif-container {
-            margin-top: 1cm;
-            width: 170px;
-            height: 170px;
+            margin-top: 4.5cm;
+            margin-left: -17cm;
+            width: 250px;
+            height: 250px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -291,34 +325,70 @@
         }
 
         .text-container {
-            text-align: center;
-            margin-top: 30px;
+            margin-left: 5.5cm;
+            margin-top: -7cm;
             color: whitesmoke;
             font-family: Arial, sans-serif;
         }
 
         .text-container .main-text {
-            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-size: 3.5rem;
             font-weight: bold;
         }
 
         .text-container .sub-text {
-            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-size: 1.5rem;
         }
 
-        .search-bar {
-            margin-top: 20px;
-            padding: 10px;
-            background: black;
-            color: whitesmoke;
-            font-size: 1rem;
-            text-align: center;
-            border-radius: 25px;
-            width: min(245px, 90%);
-            font-family: Arial, sans-serif;
-            font-weight: bold;
-            cursor: pointer;
-        }
+       
+
+.location-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    width: 500px;
+    margin-left: 6.5cm;
+    margin-top: 1.8cm;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.input-box i {
+    margin-right: 10px;
+    color: #444;
+}
+
+.input-box input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    font-size: 16px;
+}
+
+.location-btn {
+    background-color: #E3F5ED;
+    color: #007B5E;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.location-btn i {
+    margin-right: 5px;
+}
+
 
         .order-now {
             margin-top: 13px;
@@ -332,7 +402,7 @@
         .drawing-gallery {
             display: flex;
             gap: 20px;
-            margin-top: 30px;
+            margin-top: 4cm;
             overflow-x: auto;
             padding: 20px;
             width: 100%;
@@ -340,6 +410,14 @@
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
+        .drawing-gallery a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.drawing-gallery a:hover {
+    text-decoration: none;
+}
 
         .drawing-gallery::-webkit-scrollbar {
             display: none;
@@ -399,6 +477,7 @@
         @media (max-width: 768px) {
             .image-row {
                 justify-content: center;
+                margin-top: 60;
             }
             
             .image-column, .hotel-column, .supper-column {
@@ -453,12 +532,31 @@
     padding: 4px 10px;  /* Larger padding for better touch targets */
 }
 
-            .gif-container {
-                margin-top: 1cm;
-            }
-        
+           
 
         @media (max-width: 480px) {
+            .gif-container {
+        margin-left: auto;
+        margin-right: auto;
+        width: 170px;  
+        height: 170px; 
+    }
+    
+    .text-container {
+        margin-top: 20px;  
+        width: 100%;
+    }
+
+    .text-container .main-text {
+        font-size: 1.5rem;  
+    }
+
+    .text-container .sub-text {
+        font-size: 1.2rem; 
+    
+    }
+
+            }
             .container, .second-container, .third-container {
                 padding: 10px;
             }
@@ -478,7 +576,7 @@
             .hamburger-menu {
                 right: 15px;
             }
-        }
+        
     </style>
 </head>
 <body>
@@ -501,34 +599,47 @@
             <div class="main-text">Food and Drinks</div>
             <div class="sub-text">delivered where you are </div>
         </div>
-        <div class="search-bar">Use Current Location</div>
+        <div class="location-container">
+            <div class="input-box">
+                <i class="fas fa-map-marker-alt"></i>
+                <input type="text" placeholder="What's your address?">
+                <button class="location-btn">
+                    <i class="fas fa-paper-plane"></i> Use current location
+                </button>
+            </div>
+        </div>
         <div class="order-now">Order now!!</div>
-        
+    
         <div class="drawing-gallery">
+            <a href="top-restaurants.html">
             <div class="drawing">
                 <div class="rectangle">
                     <div class="label">Top Restaurants</div>
                     <img src="images/top-restaurant.jpg" alt="Top restaurant">
                 </div>
             </div>
+            <a href="drinks.html">
             <div class="drawing">
                 <div class="rectangle">
                     <div class="label">Drinks</div>
                     <img src="images/drinks.jpg" alt="Drinks">
                 </div>
             </div>
+            <a href="group-dishes.html">
             <div class="drawing">
                 <div class="rectangle">
                     <div class="label">Group Dishes</div>
                     <img src="images/group-dishes.jpg" alt="Group Dishes">
                 </div>
             </div>
+            <a href="bakeries.html">
             <div class="drawing">
                 <div class="rectangle">
                     <div class="label">Bakeries</div>
                     <img src="images/bakeries.jpg" alt="Bakeries">
                 </div>
             </div>
+            <a href="ice-cream.html">
             <div class="drawing">
                 <div class="rectangle">
                     <div class="label">Ice cream parlors</div>
@@ -537,7 +648,6 @@
             </div>
         </div>
     </div>
-
     <div class="second-container">
         <div class="image-row">
             <div class="supper-column">
@@ -546,14 +656,14 @@
                     <div class="supper-title">Dema super supper</div>
                     <div class="supper-description main text">Enjoy delicious meals every evening with our weekly</div>
                     <div class="supper-description sub text">supper subscription—convenient and delivered straight to your door!</div>
-                    <a href="#" class="supper-order">Order now</a>
+                    <a href="order.html" class="supper-order">Order now</a>
                 </div>
             </div>
             <div class="image-column">
                 <img src="images/deliver.jpg" alt="Delivery" class="deliver-image">
                 <div class="deliver-text">
                     <div class="deliver-title">Join Our Delivery Team</div>
-                    <a href="#" class="deliver-signup">sign up to deliver</a>
+                    <a href="deliver.html" class="deliver-signup">sign up to deliver</a>
                 </div>
             </div>
             
@@ -561,7 +671,7 @@
                 <img src="images/hotel.jpg" alt="Hotel" class="hotel-image">
                 <div class="hotel-text">
                     <div class="hotel-title">Your restaurant</div>
-                    <a href="#" class="hotel-register">List your restaurant</a>
+                    <a href="hotel.html" class="hotel-register">List your restaurant</a>
                 </div>
             </div>
         </div>
@@ -584,11 +694,15 @@
 
             <div class="footer-left">
                 <h3>About Us</h3>
+                <p><a href="about.html" class="about-link">Learn more</a></p>
             </div>
 
             <div class="footer-right">
                 <h3>Follow Us</h3>
-                <p>Social media links go here</p>
+                <p>
+                    <i class="fab fa-instagram"></i>
+                    <a href="https://www.instagram.com/dema_foods_kenya" target="_blank">dema_foods_kenya</a>
+                </p>            
             </div>
         </div>
     <script>
