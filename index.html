@@ -25,7 +25,7 @@
             padding: 20px;
         }
 
-
+       
        
         .second-container {
             width: 100%;
@@ -348,8 +348,8 @@
     padding: 10px;
     display: flex;
     align-items: center;
-    width: 500px;
-    margin-left: 6.5cm;
+    width: 450px;
+    margin-left: 5.5cm;
     margin-top: 1.8cm;
 }
 
@@ -372,21 +372,6 @@
     outline: none;
     flex-grow: 1;
     font-size: 16px;
-}
-
-.location-btn {
-    background-color: #E3F5ED;
-    color: #007B5E;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.location-btn i {
-    margin-right: 5px;
 }
 
 
@@ -473,7 +458,149 @@
             font-weight: bold;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
         }
+        .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 1000;
+    display: none;
+    overflow-y: auto;
+}
 
+.menu-content {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.menu-overlay nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-overlay nav ul li {
+    margin: 20px 0;
+}
+
+.menu-overlay nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+    font-family: Arial, sans-serif;
+}
+
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 3rem;
+    cursor: pointer;
+}
+.location-modal {
+    display: none;
+    position: fixed;
+    z-index: 1100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.location-modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    height: 70vh; /* Increased height to 70% of the viewport height */
+    max-height: 700px; /* Optional: add a maximum height */
+    display: flex;
+    flex-direction: column;
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: black;
+}
+
+.location-search-container {
+    margin-top: 20px;
+}
+
+.location-search-container .input-box {
+    display: flex;
+    align-items: center;
+    background: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.location-search-container .input-box i {
+    margin-right: 10px;
+    color: #444;
+}
+
+.location-search-container .input-box input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    font-size: 16px;
+    background: transparent;
+}
+.location-suggestions {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: none;
+}
+
+.location-suggestions li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.location-suggestions li:hover {
+    background-color: #f1f1f1;
+}
+
+.location-suggestions.show {
+    display: block;
+}
+body.modal-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.location-modal {
+    position: fixed;
+    z-index: 1100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+    background-color: rgba(0,0,0,0.4);
+}
         @media (max-width: 768px) {
             .image-row {
                 justify-content: center;
@@ -603,8 +730,6 @@
             <div class="input-box">
                 <i class="fas fa-map-marker-alt"></i>
                 <input type="text" placeholder="What's your address?">
-                <button class="location-btn">
-                    <i class="fas fa-paper-plane"></i> Use current location
                 </button>
             </div>
         </div>
@@ -618,6 +743,7 @@
                     <img src="images/top-restaurant.jpg" alt="Top restaurant">
                 </div>
             </div>
+            </a>
             <a href="drinks.html">
             <div class="drawing">
                 <div class="rectangle">
@@ -625,6 +751,7 @@
                     <img src="images/drinks.jpg" alt="Drinks">
                 </div>
             </div>
+            </a>
             <a href="group-dishes.html">
             <div class="drawing">
                 <div class="rectangle">
@@ -632,6 +759,7 @@
                     <img src="images/group-dishes.jpg" alt="Group Dishes">
                 </div>
             </div>
+            </a>
             <a href="bakeries.html">
             <div class="drawing">
                 <div class="rectangle">
@@ -639,15 +767,19 @@
                     <img src="images/bakeries.jpg" alt="Bakeries">
                 </div>
             </div>
+            </a>
             <a href="ice-cream.html">
             <div class="drawing">
                 <div class="rectangle">
                     <div class="label">Ice cream parlors</div>
                     <img src="images/ice-cream.jpg" alt="Ice cream">
-                </div>
             </div>
+            </div>
+            </a>
         </div>
     </div>
+    
+    
     <div class="second-container">
         <div class="image-row">
             <div class="supper-column">
@@ -705,6 +837,40 @@
                 </p>            
             </div>
         </div>
+        <div class="menu-overlay">
+            <div class="menu-content">
+                <div class="close-menu">&times;</div>
+                <nav>
+                    <ul>
+                        <li><a href="top-restaurants.html">Top Restaurants</a></li>
+                        <li><a href="drinks.html">Drinks</a></li>
+                        <li><a href="group-dishes.html">Group Dishes</a></li>
+                        <li><a href="bakeries.html">Bakeries</a></li>
+                        <li><a href="ice-cream.html">Ice Cream Parlors</a></li>
+                        <li><a href="coupons.html">coupons</a></li>
+                        <li><a href="referrals.html">referrals</a></li>
+                        <li><a href="about.html">about</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div id="locationModal" class="location-modal">
+            <div class="location-modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Add a delivery address</h2>
+                <div class="location-search-container">
+                    <div class="input-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="locationSearch" placeholder="Search">
+                    </div>
+                    <ul id="locationSuggestions" class="location-suggestions">
+                        <!-- Suggestions will be dynamically populated -->
+                    </ul>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
     <script>
         let gifIndex = 1;
         setInterval(() => {
@@ -721,6 +887,129 @@
             
             gifIndex = gifIndex === 1 ? 2 : 1;
         }, 4500);
+    </script>
+    <script>
+        // Existing gif script remains here
+    
+        // Hamburger menu toggle
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const menuOverlay = document.querySelector('.menu-overlay');
+        const closeMenu = document.querySelector('.close-menu');
+    
+        hamburgerMenu.addEventListener('click', () => {
+            menuOverlay.style.display = 'block';
+        });
+    
+        closeMenu.addEventListener('click', () => {
+            menuOverlay.style.display = 'none';
+        });
+    </script>
+    <script>
+        // Existing scripts...
+    
+        // Location Modal
+        const locationInput = document.querySelector('.location-container input');
+        const locationModal = document.getElementById('locationModal');
+        const closeModal = document.querySelector('.close-modal');
+    
+        // Modify existing location modal scripts
+
+        locationInput.addEventListener('click', () => {
+    locationModal.style.display = 'block';
+    document.body.classList.add('modal-open');
+    
+    // Display all suggestions by default when modal opens
+    locationSuggestionsContainer.innerHTML = '';
+    locationSuggestions.forEach(location => {
+        const li = document.createElement('li');
+        li.textContent = location;
+        li.addEventListener('click', () => {
+            window.location.href = `categories.html?location=${encodeURIComponent(location)}`;
+        });
+        locationSuggestionsContainer.appendChild(li);
+    });
+    locationSuggestionsContainer.classList.add('show');
+});
+
+closeModal.addEventListener('click', () => {
+    locationModal.style.display = 'none';
+    document.body.classList.remove('modal-open');
+});
+
+// Add to existing window click event
+window.addEventListener('click', (event) => {
+    if (event.target == locationModal) {
+        locationModal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+    }
+});
+    </script>
+    <script>
+        // Predefined location suggestions
+        const locationSuggestions = [
+            'Nyayo 6',
+            'Nyayo 5',
+            'Nyayo 4',
+            'Nyayo 3',
+            'Nyayo 2',
+            'Nyayo 1',
+            'Nyandarua 1',
+            'Nyandarua 2',
+            'Nyandarua 3',
+            'Nyandarua 4',
+            'Mfumbiro 1',
+            'Mfumbiro 2',
+            'Mfumbiro 3',
+            'Mfumbiro 4',
+            'Ruwenzori',
+            'Usambara',
+            'Lukenya',
+        ];
+    
+        // DOM Elements
+        const locationSearchInput = document.getElementById('locationSearch');
+        const locationSuggestionsContainer = document.getElementById('locationSuggestions');
+    
+        // Function to filter and display suggestions
+        function displaySuggestions(searchTerm) {
+            // Clear previous suggestions
+            locationSuggestionsContainer.innerHTML = '';
+    
+            // Filter suggestions based on input
+            const filteredSuggestions = locationSuggestions.filter(location => 
+                location.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+    
+            // Display filtered suggestions
+            filteredSuggestions.forEach(location => {
+                const li = document.createElement('li');
+                li.textContent = location;
+                li.addEventListener('click', () => {
+                    window.location.href = `categories.html?location=${encodeURIComponent(location)}`;
+                });
+                locationSuggestionsContainer.appendChild(li);
+            });
+    
+            // Show/hide suggestions container
+            if (filteredSuggestions.length > 0) {
+                locationSuggestionsContainer.classList.add('show');
+            } else {
+                locationSuggestionsContainer.classList.remove('show');
+            }
+        }
+    
+        // Event listener for search input
+        locationSearchInput.addEventListener('input', (e) => {
+            displaySuggestions(e.target.value);
+        });
+    
+        // Close suggestions when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!locationSearchInput.contains(e.target) && 
+                !locationSuggestionsContainer.contains(e.target)) {
+                locationSuggestionsContainer.classList.remove('show');
+            }
+        });
     </script>
 </body>
 </html>
