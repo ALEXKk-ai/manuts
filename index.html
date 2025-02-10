@@ -12,20 +12,33 @@
             box-sizing: border-box;
         }
 
-        .container {
-            width: 100%;
-            min-height: 70vh;
-            background: #9b59b6;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            padding: 20px;
-        }
+        .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #9b59b6;
+    padding: 47px 47px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-       
+.container {
+    width: 100%;
+    min-height: 70vh;
+    background: #9b59b6;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    padding-top: 80px; 
+}
+
        
         .second-container {
             width: 100%;
@@ -238,49 +251,50 @@
             text-decoration: underline;
         }
 
-        .logo {
-            position: absolute;
-            top: 20px;
-            left: 30px;
-            font-family: Arial, sans-serif;
-            font-size: 1.2rem;
-            color: whitesmoke;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 70px;
-        }
+       
+.header .logo {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+   font-family: Arial, sans-serif;
+   font-size: 1.2rem;
+   color: whitesmoke;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height: 70px;
+}
 
-        .logo-text {
-            position: relative;
-            z-index: 1;
-            transform: translateX(5px);
-        }
+.logo-text {
+   position: relative;
+   z-index: 1;
+   transform: translateX(5px);
+}
 
-        .dema {
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
+.dema {
+   font-weight: 900;
+   letter-spacing: 1px;
+}
 
-        .foods {
-            font-weight: 400;
-        }
+.foods {
+   font-weight: 400;
+}
 
-        .logo::before {
-            content: "";
-            position: absolute;
-            width: 70px;
-            height: 70px;
-            border: 2px solid white;
-            border-radius: 50%;
-            left: -10px;
-            top: -2px;
-            clip-path: polygon(0 0, 95% 0, 95% 95%, 90% 100%, 0 100%, 0 0);
-        }
+.logo::before {
+   content: "";
+   position: absolute;
+   width: 70px;
+   height: 70px;
+   border: 2px solid white;
+   border-radius: 50%;
+   left: -10px;
+   top: -2px;
+   clip-path: polygon(0 0, 95% 0, 95% 95%, 90% 100%, 0 100%, 0 0);
+}
 
-        .hamburger-menu {
-            position: absolute;
+.hamburger-menu {
+    position: absolute;
             top: 20px;
             right: 20px;
             width: 30px;
@@ -289,14 +303,20 @@
             flex-direction: column;
             justify-content: space-between;
             z-index: 2;
-        }
+}
 
-        .hamburger-menu div {
-            width: 100%;
-            height: 4px;
-            background: white;
-            border-radius: 2px;
-        }
+.hamburger-menu div {
+   width: 100%;
+   height: 4px;
+   background: white;
+   border-radius: 2px;
+}
+
+.container {
+   margin-top: 80px;
+}
+
+        
 
         .gif-container {
             margin-top: 4.5cm;
@@ -662,7 +682,12 @@ body.modal-open {
            
 
         @media (max-width: 480px) {
-            .gif-container {
+          
+            .header {
+       padding: 47px;
+   }  
+   
+   .gif-container {
         margin-left: auto;
         margin-right: auto;
         width: 170px;  
@@ -720,11 +745,43 @@ body.modal-open {
         margin-top: 20px;
         text-align: center;
     }
-        }
+    .location-modal-content {
+        width: 95%;
+        margin: 10% auto;
+        height: 60vh;
+        max-height: 500px;
+        padding: 15px;
+    }
+
+    .location-suggestions {
+        max-height: 200px;
+    }
+
+    .location-search-container {
+        margin-top: 10px;
+    }
+
+    .location-modal h2 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .close-modal {
+        font-size: 24px;
+        padding: 5px;
+    }
+
+    .location-suggestions li {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+        
     </style>
 </head>
 <body>
-    <div class="container">
+    <header class="header">
         <div class="logo">
             <div class="logo-text">
                 <span class="dema">Dema</span><span class="foods">Foods</span>
@@ -735,6 +792,11 @@ body.modal-open {
             <div></div>
             <div></div>
         </div>
+    </header>
+
+
+
+    <div class="container">
         <div class="gif-container">
             <img src="images/gif1.gif" class="active" id="gif1">
             <img src="images/gif2.gif" id="gif2">
@@ -937,7 +999,8 @@ body.modal-open {
     
     // Display all suggestions by default when modal opens
     locationSuggestionsContainer.innerHTML = '';
-    locationSuggestions.forEach(location => {
+    const initialSuggestions = locationSuggestions.slice(0, 5);
+    initialSuggestions.forEach(location => {
         const li = document.createElement('li');
         li.textContent = location;
         li.addEventListener('click', () => {
